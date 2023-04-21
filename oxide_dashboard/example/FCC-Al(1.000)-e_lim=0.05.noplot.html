@@ -1,0 +1,361 @@
+<table border="1" class="dataframe" id="myTable2">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th onclick="sortTable(0)">material ID</th>
+      <th onclick="sortTable(1)">oxide</th>
+      <th onclick="sortTable(2)">e_above_hull (eV)</th>
+      <th onclick="sortTable(3)">form. energy / atom (eV/atom)</th>
+      <th onclick="sortTable(4)">space-group</th>
+      <th onclick="sortTable(5)">v_mox_ratio</th>
+      <th onclick="sortTable(6)">atomic % of O in oxide</th>
+      <th onclick="sortTable(7)">band gap</th>
+      <th onclick="sortTable2(8)">alloy orientation</th>
+      <th onclick="sortTable2(9)">oxide orientation</th>
+      <th onclick="sortTable(10)">misfit strain (norm)</th>
+      <th onclick="sortTable(11)">min. coincident area</th>
+      <th onclick="sortTable(12)">similar ICSD structure IDs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td><a href="https://materialsproject.org/materials/mp-1245211" target="_blank">mp-1245211</a></td>
+      <td>Al2O3</td>
+      <td>0.041719</td>
+      <td>-3.384832</td>
+      <td>C2/m</td>
+      <td>1.425260</td>
+      <td>60.0</td>
+      <td>3.7796</td>
+      <td>1 1 1</td>
+      <td>0 0 1</td>
+      <td>0.019235</td>
+      <td>27.696236</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td><a href="https://materialsproject.org/materials/mp-32570" target="_blank">mp-32570</a></td>
+      <td>Al2O3</td>
+      <td>0.032410</td>
+      <td>-3.394141</td>
+      <td>C2/c</td>
+      <td>1.425633</td>
+      <td>60.0</td>
+      <td>4.1331</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.017652</td>
+      <td>32.006578</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td><a href="https://materialsproject.org/materials/mp-759943" target="_blank">mp-759943</a></td>
+      <td>Al2O3</td>
+      <td>0.035135</td>
+      <td>-3.391416</td>
+      <td>P2/c</td>
+      <td>1.426037</td>
+      <td>60.0</td>
+      <td>4.0646</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.017634</td>
+      <td>32.006848</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td><a href="https://materialsproject.org/materials/mp-7048" target="_blank">mp-7048</a></td>
+      <td>Al2O3</td>
+      <td>0.009381</td>
+      <td>-3.417170</td>
+      <td>C2/m</td>
+      <td>1.452276</td>
+      <td>60.0</td>
+      <td>4.6054</td>
+      <td>1 0 0</td>
+      <td>1 1 0</td>
+      <td>0.027799</td>
+      <td>33.353405</td>
+      <td>{82504}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td><a href="https://materialsproject.org/materials/mp-754401" target="_blank">mp-754401</a></td>
+      <td>Al2O3</td>
+      <td>0.045600</td>
+      <td>-3.380951</td>
+      <td>Cmc2_1</td>
+      <td>2.015780</td>
+      <td>60.0</td>
+      <td>4.2347</td>
+      <td>1 1 1</td>
+      <td>1 0 0</td>
+      <td>0.023504</td>
+      <td>55.628489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td><a href="https://materialsproject.org/materials/mp-7048" target="_blank">mp-7048</a></td>
+      <td>Al2O3</td>
+      <td>0.009381</td>
+      <td>-3.417170</td>
+      <td>C2/m</td>
+      <td>1.452276</td>
+      <td>60.0</td>
+      <td>4.6054</td>
+      <td>1 1 0</td>
+      <td>0 0 1</td>
+      <td>0.032106</td>
+      <td>70.146057</td>
+      <td>{82504}</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><a href="https://materialsproject.org/materials/mp-2254" target="_blank">mp-2254</a></td>
+      <td>Al2O3</td>
+      <td>0.016887</td>
+      <td>-3.409664</td>
+      <td>Pna2_1</td>
+      <td>1.393542</td>
+      <td>60.0</td>
+      <td>4.8297</td>
+      <td>1 1 1</td>
+      <td>0 0 1</td>
+      <td>0.027939</td>
+      <td>82.061139</td>
+      <td>{84375, 94485, 161790, 247304}</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td><a href="https://materialsproject.org/materials/mp-1245211" target="_blank">mp-1245211</a></td>
+      <td>Al2O3</td>
+      <td>0.041719</td>
+      <td>-3.384832</td>
+      <td>C2/m</td>
+      <td>1.425260</td>
+      <td>60.0</td>
+      <td>3.7796</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.022791</td>
+      <td>83.088709</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td><a href="http://oqmd.org/materials/entry/686852" target="_blank">oqmd-686852</a></td>
+      <td>Al2O3</td>
+      <td>0.001938</td>
+      <td>-3.263128</td>
+      <td>C2/c</td>
+      <td>1.281064</td>
+      <td>60.0</td>
+      <td>6.2090</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027035</td>
+      <td>98.399329</td>
+      <td>{169722}</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td><a href="http://oqmd.org/materials/entry/678197" target="_blank">oqmd-678197</a></td>
+      <td>Al2O3</td>
+      <td>0.000149</td>
+      <td>-3.264917</td>
+      <td>R-3</td>
+      <td>1.287625</td>
+      <td>60.0</td>
+      <td>6.3050</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027194</td>
+      <td>98.496958</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td><a href="http://oqmd.org/materials/entry/1234774" target="_blank">oqmd-1234774</a></td>
+      <td>Al2O3</td>
+      <td>0.000000</td>
+      <td>-3.265066</td>
+      <td>R-3c</td>
+      <td>1.288179</td>
+      <td>60.0</td>
+      <td>6.3100</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027182</td>
+      <td>98.555864</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><a href="https://materialsproject.org/materials/mp-754401" target="_blank">mp-754401</a></td>
+      <td>Al2O3</td>
+      <td>0.045600</td>
+      <td>-3.380951</td>
+      <td>Cmc2_1</td>
+      <td>2.015780</td>
+      <td>60.0</td>
+      <td>4.2347</td>
+      <td>1 1 0</td>
+      <td>1 0 0</td>
+      <td>0.030205</td>
+      <td>111.256979</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td><a href="https://materialsproject.org/materials/mp-776490" target="_blank">mp-776490</a></td>
+      <td>Al2O3</td>
+      <td>0.047810</td>
+      <td>-3.378741</td>
+      <td>Pbca</td>
+      <td>1.303540</td>
+      <td>60.0</td>
+      <td>5.4415</td>
+      <td>1 1 0</td>
+      <td>0 1 0</td>
+      <td>0.028238</td>
+      <td>136.091417</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td><a href="https://materialsproject.org/materials/mp-759943" target="_blank">mp-759943</a></td>
+      <td>Al2O3</td>
+      <td>0.035135</td>
+      <td>-3.391416</td>
+      <td>P2/c</td>
+      <td>1.426037</td>
+      <td>60.0</td>
+      <td>4.0646</td>
+      <td>1 1 0</td>
+      <td>1 0 1</td>
+      <td>0.016357</td>
+      <td>137.714040</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td><a href="https://materialsproject.org/materials/mp-32570" target="_blank">mp-32570</a></td>
+      <td>Al2O3</td>
+      <td>0.032410</td>
+      <td>-3.394141</td>
+      <td>C2/c</td>
+      <td>1.425633</td>
+      <td>60.0</td>
+      <td>4.1331</td>
+      <td>1 1 0</td>
+      <td>1 0 1</td>
+      <td>0.016649</td>
+      <td>138.138095</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+function sortTable(n) {
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+table = document.getElementById("myTable2");
+switching = true;
+dir = "asc";
+while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+                var cmpX=isNaN(parseFloat(x.innerHTML))?x.innerHTML.toLowerCase():parseFloat(x.innerHTML);
+                var cmpY=isNaN(parseFloat(y.innerHTML))?y.innerHTML.toLowerCase():parseFloat(y.innerHTML);
+cmpX=(cmpX=='-')?0:cmpX;
+cmpY=(cmpY=='-')?0:cmpY;
+        if (dir == "asc") {
+            if (cmpX > cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        } else if (dir == "desc") {
+            if (cmpX < cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        }
+    }
+    if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;      
+    } else {
+        if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+        }
+    }
+}
+}
+
+
+function sortTable2(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
