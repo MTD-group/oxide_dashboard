@@ -25,6 +25,6 @@ write_dashboard_html(df, lattice_param=lattice_param,
     STRUCTURE=STRUCTURE, E_HULL=E_HULL,
     filename_prefix = None)
 ################## if you just want to look at the table in IPython
-# from utils import display_data 
+# from oxide_dashboard.utils import display_data 
 #new = display_data(df, top_unique = 5)
 # display(new) 
