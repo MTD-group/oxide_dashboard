@@ -10,6 +10,11 @@ from bokeh.models.tools import (BoxZoomTool, PanTool, SaveTool,
 
 def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_results = False):
 
+    f2 = open(name_of_file, 'r')
+    file_contents = f2.read()
+    f2.close()
+
+
     hover = HoverTool(tooltips=[
         ("mat_id", "@mp_ids"),
         ("oxide orientation", "@ox_orients"),
@@ -73,16 +78,10 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
         show(p)
     
     f1 = open(name_of_pfile, 'a+')
-    f2 = open(name_of_file, 'r')
-    
     f1.write("<br>")
-    
     f1.write(append_string)
-    
     f1.write("<br><br>")
-
-    f1.write(f2.read())
-
+    f1.write(file_contents)
     f1.close()
-    f2.close()
+    
 

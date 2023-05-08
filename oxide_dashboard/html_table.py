@@ -47,19 +47,19 @@ def formatting(x):
 
 
 def write_dashboard_html(df, lattice_param=None, add_plots = True,
-    filename_prefix = None, 
+    filename = None, 
     METALS=None, COMPS=None, STRUCTURE=None, E_HULL=None):
 
     #########
+    compformat = alloy_composition_to_string(METALS,COMPS)
 
-    if filename_prefix is not None:
-        prefix = filename_prefix
+    if filename is not None:
+        name_of_file = filename
     else:
-        compformat = alloy_composition_to_string(METALS,COMPS)
         prefix = STRUCTURE + "-" + compformat + "-e_lim=" + str(E_HULL) 
+        name_of_file =  prefix + '.html'
         
-    name_of_file =  prefix + '.noplot.html'
-    name_of_pfile = prefix + '.plot.html'
+    #name_of_pfile = prefix + '.plot.html'
 
     ######
     if lattice_param is not None:
@@ -68,7 +68,7 @@ def write_dashboard_html(df, lattice_param=None, add_plots = True,
         
     ###############
     dfcopy = display_data(df, top_unique = 5)
-    dfcopy2 = display_data(df, top_unique = 5)
+    #dfcopy2 = display_data(df, top_unique = 5)
 
     pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -87,5 +87,9 @@ def write_dashboard_html(df, lattice_param=None, add_plots = True,
 
     if add_plots:
         from .html_plots import prepend_plots
-        prepend_plots(name_of_pfile, name_of_file, dfcopy2,
+        # to add to a new file
+        #prepend_plots(name_of_pfile, name_of_file, dfcopy2,
+        #    append_string=lattice_param_string)
+        # to add to the existing one
+        prepend_plots(name_of_file, name_of_file, dfcopy,
             append_string=lattice_param_string)
