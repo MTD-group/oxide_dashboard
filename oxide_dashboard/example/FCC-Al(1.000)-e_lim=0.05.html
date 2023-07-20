@@ -1,0 +1,477 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" integrity="sha384-dM3QQsP+wXdHg42wTqW85BjZQdLNNIXqlPw/BgKoExPmTG7ZLML4EGqLMfqHT6ON" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="c93b73de-b56d-40f5-93e1-ebf58a435564" data-root-id="1146"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1387">
+          {"5d50a4fd-0bed-4846-93af-49a618f81904":{"defs":[],"roots":{"references":[{"attributes":{},"id":"1024","type":"BasicTicker"},{"attributes":{"text":"Misfit Strain vs Vm/ox Ratio "},"id":"1077","type":"Title"},{"attributes":{"axis":{"id":"1023"},"dimension":1,"ticker":null},"id":"1026","type":"Grid"},{"attributes":{},"id":"1004","type":"PanTool"},{"attributes":{},"id":"1079","type":"DataRange1d"},{"attributes":{},"id":"1119","type":"UnionRenderers"},{"attributes":{},"id":"1081","type":"DataRange1d"},{"attributes":{"active_multi":null,"tools":[{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"}]},"id":"1028","type":"Toolbar"},{"attributes":{},"id":"1083","type":"LinearScale"},{"attributes":{"children":[[{"id":"1008"},0,0],[{"id":"1042"},0,1],[{"id":"1076"},1,0]]},"id":"1143","type":"GridBox"},{"attributes":{},"id":"1085","type":"LinearScale"},{"attributes":{"below":[{"id":"1053"}],"center":[{"id":"1056"},{"id":"1060"},{"id":"1074"}],"left":[{"id":"1057"}],"renderers":[{"id":"1072"}],"title":{"id":"1043"},"toolbar":{"id":"1062"},"toolbar_location":null,"x_range":{"id":"1045"},"x_scale":{"id":"1049"},"y_range":{"id":"1047"},"y_scale":{"id":"1051"}},"id":"1042","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"Vmox/Vm Ratio","formatter":{"id":"1136"},"major_label_policy":{"id":"1137"},"ticker":{"id":"1088"}},"id":"1087","type":"LinearAxis"},{"attributes":{"text":"Misfit Strain vs Formation Energy Per Atom"},"id":"1043","type":"Title"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1027","type":"BoxAnnotation"},{"attributes":{},"id":"1088","type":"BasicTicker"},{"attributes":{"axis":{"id":"1087"},"ticker":null},"id":"1090","type":"Grid"},{"attributes":{"fill_color":{"value":"deeppink"},"line_color":{"value":"deeppink"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"mcia"}},"id":"1037","type":"Circle"},{"attributes":{"axis_label":"Misfit Strain","formatter":{"id":"1133"},"major_label_policy":{"id":"1134"},"ticker":{"id":"1092"}},"id":"1091","type":"LinearAxis"},{"attributes":{},"id":"1092","type":"BasicTicker"},{"attributes":{"overlay":{"id":"1027"}},"id":"1003","type":"BoxZoomTool"},{"attributes":{},"id":"1005","type":"SaveTool"},{"attributes":{"source":{"id":"1007"},"text":{"field":"names"},"text_font_size":{"value":"12pt"},"x":{"field":"form"},"x_offset":{"value":3},"y":{"field":"mcia"},"y_offset":{"value":3}},"id":"1040","type":"LabelSet"},{"attributes":{"axis":{"id":"1091"},"dimension":1,"ticker":null},"id":"1094","type":"Grid"},{"attributes":{"data_source":{"id":"1007"},"glyph":{"id":"1035"},"hover_glyph":{"id":"1037"},"muted_glyph":null,"nonselection_glyph":{"id":"1036"},"view":{"id":"1039"}},"id":"1038","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"mcia"}},"id":"1035","type":"Circle"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"mcia"}},"id":"1036","type":"Circle"},{"attributes":{"active_multi":null,"tools":[{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"}]},"id":"1096","type":"Toolbar"},{"attributes":{},"id":"1045","type":"DataRange1d"},{"attributes":{},"id":"1136","type":"BasicTickFormatter"},{"attributes":{"toolbars":[{"id":"1028"},{"id":"1062"},{"id":"1096"}],"tools":[{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"},{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"},{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"}]},"id":"1144","type":"ProxyToolbar"},{"attributes":{},"id":"1047","type":"DataRange1d"},{"attributes":{},"id":"1137","type":"AllLabels"},{"attributes":{},"id":"1049","type":"LinearScale"},{"attributes":{"toolbar":{"id":"1144"},"toolbar_location":"above"},"id":"1145","type":"ToolbarBox"},{"attributes":{},"id":"1051","type":"LinearScale"},{"attributes":{"fill_color":{"value":"deeppink"},"line_color":{"value":"deeppink"},"size":{"value":8},"x":{"field":"v_mox_ratio"},"y":{"field":"strain"}},"id":"1105","type":"Circle"},{"attributes":{"axis_label":"Formation energy per atom (eV/atom)","formatter":{"id":"1125"},"major_label_policy":{"id":"1126"},"ticker":{"id":"1054"}},"id":"1053","type":"LinearAxis"},{"attributes":{"source":{"id":"1007"}},"id":"1107","type":"CDSView"},{"attributes":{},"id":"1054","type":"BasicTicker"},{"attributes":{"axis":{"id":"1053"},"ticker":null},"id":"1056","type":"Grid"},{"attributes":{"data_source":{"id":"1007"},"glyph":{"id":"1103"},"hover_glyph":{"id":"1105"},"muted_glyph":null,"nonselection_glyph":{"id":"1104"},"view":{"id":"1107"}},"id":"1106","type":"GlyphRenderer"},{"attributes":{"axis_label":"Misfit Strain","formatter":{"id":"1122"},"major_label_policy":{"id":"1123"},"ticker":{"id":"1058"}},"id":"1057","type":"LinearAxis"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"v_mox_ratio"},"y":{"field":"strain"}},"id":"1103","type":"Circle"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"v_mox_ratio"},"y":{"field":"strain"}},"id":"1104","type":"Circle"},{"attributes":{},"id":"1058","type":"BasicTicker"},{"attributes":{"source":{"id":"1007"},"text":{"field":"names"},"text_font_size":{"value":"12pt"},"x":{"field":"v_mox_ratio"},"x_offset":{"value":3},"y":{"field":"strain"},"y_offset":{"value":3}},"id":"1108","type":"LabelSet"},{"attributes":{"axis":{"id":"1057"},"dimension":1,"ticker":null},"id":"1060","type":"Grid"},{"attributes":{},"id":"1125","type":"BasicTickFormatter"},{"attributes":{},"id":"1126","type":"AllLabels"},{"attributes":{},"id":"1134","type":"AllLabels"},{"attributes":{"active_multi":null,"tools":[{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1002"}]},"id":"1062","type":"Toolbar"},{"attributes":{},"id":"1133","type":"BasicTickFormatter"},{"attributes":{},"id":"1111","type":"BasicTickFormatter"},{"attributes":{"data":{"form":[-3.384832481,-3.394140574,-3.3914156911249997,-3.417169786,-3.3809509060000003,-3.417169786,-3.4096639672499998,-3.384832481,-3.26312754352725,-3.26491653252725,-3.26506602752725,-3.3809509060000003,-3.3787410854999997,-3.3914156911249997,-3.394140574],"mcia":[27.69623617103074,32.006577659198776,32.006847660634,33.35340480521161,55.6284894912799,70.14605706993153,82.06113901035602,83.08870851309221,98.39932855271933,98.49695769945001,98.55586389953498,111.2569789825598,136.091416657266,137.71404012125416,138.1380951347558],"mp_ids":["&lt;a href=\"https://materialsproject.org/materials/mp-1245211\" target=\"_blank\"&gt;mp-1245211&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-32570\" target=\"_blank\"&gt;mp-32570&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-759943\" target=\"_blank\"&gt;mp-759943&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-7048\" target=\"_blank\"&gt;mp-7048&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-754401\" target=\"_blank\"&gt;mp-754401&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-7048\" target=\"_blank\"&gt;mp-7048&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-2254\" target=\"_blank\"&gt;mp-2254&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-1245211\" target=\"_blank\"&gt;mp-1245211&lt;/a&gt;","&lt;a href=\"http://oqmd.org/materials/entry/686852\" target=\"_blank\"&gt;oqmd-686852&lt;/a&gt;","&lt;a href=\"http://oqmd.org/materials/entry/678197\" target=\"_blank\"&gt;oqmd-678197&lt;/a&gt;","&lt;a href=\"http://oqmd.org/materials/entry/1234774\" target=\"_blank\"&gt;oqmd-1234774&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-754401\" target=\"_blank\"&gt;mp-754401&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-776490\" target=\"_blank\"&gt;mp-776490&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-759943\" target=\"_blank\"&gt;mp-759943&lt;/a&gt;","&lt;a href=\"https://materialsproject.org/materials/mp-32570\" target=\"_blank\"&gt;mp-32570&lt;/a&gt;"],"names":["Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3","Al2O3"],"ox_orients":["0 0 1","0 0 1","0 0 1","1 1 0","1 0 0","0 0 1","0 0 1","0 0 1","0 0 1","0 0 1","0 0 1","1 0 0","0 1 0","1 0 1","1 0 1"],"strain":[0.019235266959278238,0.01765192271194816,0.0176337041796701,0.02779885915048299,0.02350417038632992,0.032106213357758026,0.027938694197456312,0.022791100693150167,0.027035376018788228,0.027193862936274953,0.027181962102115455,0.030204746344393508,0.028238220937935123,0.016356594047954906,0.0166490541708759],"v_mox_ratio":[1.425260432355012,1.4256329460943582,1.426036504795581,1.4522756573874769,2.0157798526191626,1.4522756573874769,1.3935420250614083,1.425260432355012,1.2810643681018585,1.2876254860755887,1.2881789458466384,2.0157798526191626,1.3035402085456895,1.426036504795581,1.4256329460943582]},"selected":{"id":"1118"},"selection_policy":{"id":"1119"}},"id":"1007","type":"ColumnDataSource"},{"attributes":{"below":[{"id":"1019"}],"center":[{"id":"1022"},{"id":"1026"},{"id":"1040"}],"left":[{"id":"1023"}],"renderers":[{"id":"1038"}],"title":{"id":"1009"},"toolbar":{"id":"1028"},"toolbar_location":null,"x_range":{"id":"1011"},"x_scale":{"id":"1015"},"y_range":{"id":"1013"},"y_scale":{"id":"1017"}},"id":"1008","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1112","type":"AllLabels"},{"attributes":{},"id":"1123","type":"AllLabels"},{"attributes":{"source":{"id":"1007"}},"id":"1039","type":"CDSView"},{"attributes":{},"id":"1114","type":"BasicTickFormatter"},{"attributes":{},"id":"1122","type":"BasicTickFormatter"},{"attributes":{"text":"MCIA vs Formation Energy Per Atom"},"id":"1009","type":"Title"},{"attributes":{},"id":"1115","type":"AllLabels"},{"attributes":{},"id":"1011","type":"DataRange1d"},{"attributes":{"fill_color":{"value":"deeppink"},"line_color":{"value":"deeppink"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"strain"}},"id":"1071","type":"Circle"},{"attributes":{"callback":null,"tooltips":[["mat_id","@mp_ids"],["oxide orientation","@ox_orients"],["mcia","@mcia"],["misfit strain","@strain"],["formation energy","@form"]]},"id":"1002","type":"HoverTool"},{"attributes":{"children":[{"id":"1145"},{"id":"1143"}]},"id":"1146","type":"Column"},{"attributes":{},"id":"1006","type":"ResetTool"},{"attributes":{},"id":"1013","type":"DataRange1d"},{"attributes":{"source":{"id":"1007"}},"id":"1073","type":"CDSView"},{"attributes":{},"id":"1015","type":"LinearScale"},{"attributes":{},"id":"1017","type":"LinearScale"},{"attributes":{"data_source":{"id":"1007"},"glyph":{"id":"1069"},"hover_glyph":{"id":"1071"},"muted_glyph":null,"nonselection_glyph":{"id":"1070"},"view":{"id":"1073"}},"id":"1072","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"strain"}},"id":"1069","type":"Circle"},{"attributes":{"axis_label":"Formation energy per atom (eV/atom)","formatter":{"id":"1114"},"major_label_policy":{"id":"1115"},"ticker":{"id":"1020"}},"id":"1019","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"value":8},"x":{"field":"form"},"y":{"field":"strain"}},"id":"1070","type":"Circle"},{"attributes":{"source":{"id":"1007"},"text":{"field":"names"},"text_font_size":{"value":"12pt"},"x":{"field":"form"},"x_offset":{"value":3},"y":{"field":"strain"},"y_offset":{"value":3}},"id":"1074","type":"LabelSet"},{"attributes":{},"id":"1020","type":"BasicTicker"},{"attributes":{"below":[{"id":"1087"}],"center":[{"id":"1090"},{"id":"1094"},{"id":"1108"}],"left":[{"id":"1091"}],"renderers":[{"id":"1106"}],"title":{"id":"1077"},"toolbar":{"id":"1096"},"toolbar_location":null,"x_range":{"id":"1079"},"x_scale":{"id":"1083"},"y_range":{"id":"1081"},"y_scale":{"id":"1085"}},"id":"1076","subtype":"Figure","type":"Plot"},{"attributes":{"axis":{"id":"1019"},"ticker":null},"id":"1022","type":"Grid"},{"attributes":{},"id":"1118","type":"Selection"},{"attributes":{"axis_label":"MCIA","formatter":{"id":"1111"},"major_label_policy":{"id":"1112"},"ticker":{"id":"1024"}},"id":"1023","type":"LinearAxis"}],"root_ids":["1146"]},"title":"Bokeh Application","version":"2.3.3"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1387').textContent;
+                  var render_items = [{"docid":"5d50a4fd-0bed-4846-93af-49a618f81904","root_ids":["1146"],"roots":{"1146":"c93b73de-b56d-40f5-93e1-ebf58a435564"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html><br>FCC-Al(1.000): a = 4.05 Å<br><br><table border="1" class="dataframe" id="myTable2">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th onclick="sortTable(0)">Material ID</th>
+      <th onclick="sortTable(1)">Oxide</th>
+      <th onclick="sortTable(2)">Energy above hull (eV/atom)</th>
+      <th onclick="sortTable(3)">Formation energy (eV/atom)</th>
+      <th onclick="sortTable(4)">Oxygen chemical potential (eV/atom)</th>
+      <th onclick="sortTable(5)">Space group</th>
+      <th onclick="sortTable(6)">Vmox/Vm ratio</th>
+      <th onclick="sortTable(7)">Oxide O at.%</th>
+      <th onclick="sortTable(8)">Atomic packing factor</th>
+      <th onclick="sortTable(9)">Band gap</th>
+      <th onclick="sortTable2(10)">Alloy orientation</th>
+      <th onclick="sortTable2(11)">Oxide orientation</th>
+      <th onclick="sortTable(12)">Misfit strain (norm)</th>
+      <th onclick="sortTable(13)">Min. coincident area</th>
+      <th onclick="sortTable(14)">Similar ICSD structure IDs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td><a href="https://materialsproject.org/materials/mp-1245211" target="_blank">mp-1245211</a></td>
+      <td>Al2O3</td>
+      <td>0.041719</td>
+      <td>-3.384832</td>
+      <td>-5.641387</td>
+      <td>C2/m</td>
+      <td>1.425260</td>
+      <td>60.0</td>
+      <td>0.389821</td>
+      <td>3.7796</td>
+      <td>1 1 1</td>
+      <td>0 0 1</td>
+      <td>0.019235</td>
+      <td>27.696236</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td><a href="https://materialsproject.org/materials/mp-32570" target="_blank">mp-32570</a></td>
+      <td>Al2O3</td>
+      <td>0.032410</td>
+      <td>-3.394141</td>
+      <td>-5.656901</td>
+      <td>C2/c</td>
+      <td>1.425633</td>
+      <td>60.0</td>
+      <td>0.389719</td>
+      <td>4.1331</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.017652</td>
+      <td>32.006578</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td><a href="https://materialsproject.org/materials/mp-759943" target="_blank">mp-759943</a></td>
+      <td>Al2O3</td>
+      <td>0.035135</td>
+      <td>-3.391416</td>
+      <td>-5.652359</td>
+      <td>P2/c</td>
+      <td>1.426037</td>
+      <td>60.0</td>
+      <td>0.389609</td>
+      <td>4.0646</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.017634</td>
+      <td>32.006848</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td><a href="https://materialsproject.org/materials/mp-7048" target="_blank">mp-7048</a></td>
+      <td>Al2O3</td>
+      <td>0.009381</td>
+      <td>-3.417170</td>
+      <td>-5.695283</td>
+      <td>C2/m</td>
+      <td>1.452276</td>
+      <td>60.0</td>
+      <td>0.382570</td>
+      <td>4.6054</td>
+      <td>1 0 0</td>
+      <td>1 1 0</td>
+      <td>0.027799</td>
+      <td>33.353405</td>
+      <td>{82504}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td><a href="https://materialsproject.org/materials/mp-754401" target="_blank">mp-754401</a></td>
+      <td>Al2O3</td>
+      <td>0.045600</td>
+      <td>-3.380951</td>
+      <td>-5.634918</td>
+      <td>Cmc2_1</td>
+      <td>2.015780</td>
+      <td>60.0</td>
+      <td>0.275624</td>
+      <td>4.2347</td>
+      <td>1 1 1</td>
+      <td>1 0 0</td>
+      <td>0.023504</td>
+      <td>55.628489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td><a href="https://materialsproject.org/materials/mp-7048" target="_blank">mp-7048</a></td>
+      <td>Al2O3</td>
+      <td>0.009381</td>
+      <td>-3.417170</td>
+      <td>-5.695283</td>
+      <td>C2/m</td>
+      <td>1.452276</td>
+      <td>60.0</td>
+      <td>0.382570</td>
+      <td>4.6054</td>
+      <td>1 1 0</td>
+      <td>0 0 1</td>
+      <td>0.032106</td>
+      <td>70.146057</td>
+      <td>{82504}</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><a href="https://materialsproject.org/materials/mp-2254" target="_blank">mp-2254</a></td>
+      <td>Al2O3</td>
+      <td>0.016887</td>
+      <td>-3.409664</td>
+      <td>-5.682773</td>
+      <td>Pna2_1</td>
+      <td>1.393542</td>
+      <td>60.0</td>
+      <td>0.398694</td>
+      <td>4.8297</td>
+      <td>1 1 1</td>
+      <td>0 0 1</td>
+      <td>0.027939</td>
+      <td>82.061139</td>
+      <td>{84375, 94485, 161790, 247304}</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td><a href="https://materialsproject.org/materials/mp-1245211" target="_blank">mp-1245211</a></td>
+      <td>Al2O3</td>
+      <td>0.041719</td>
+      <td>-3.384832</td>
+      <td>-5.641387</td>
+      <td>C2/m</td>
+      <td>1.425260</td>
+      <td>60.0</td>
+      <td>0.389821</td>
+      <td>3.7796</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.022791</td>
+      <td>83.088709</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td><a href="http://oqmd.org/materials/entry/686852" target="_blank">oqmd-686852</a></td>
+      <td>Al2O3</td>
+      <td>0.001938</td>
+      <td>-3.263128</td>
+      <td>-5.438546</td>
+      <td>C2/c</td>
+      <td>1.281064</td>
+      <td>60.0</td>
+      <td>0.433699</td>
+      <td>6.2090</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027035</td>
+      <td>98.399329</td>
+      <td>{169722}</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td><a href="http://oqmd.org/materials/entry/678197" target="_blank">oqmd-678197</a></td>
+      <td>Al2O3</td>
+      <td>0.000149</td>
+      <td>-3.264917</td>
+      <td>-5.441528</td>
+      <td>R-3</td>
+      <td>1.287625</td>
+      <td>60.0</td>
+      <td>0.431489</td>
+      <td>6.3050</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027194</td>
+      <td>98.496958</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td><a href="http://oqmd.org/materials/entry/1234774" target="_blank">oqmd-1234774</a></td>
+      <td>Al2O3</td>
+      <td>0.000000</td>
+      <td>-3.265066</td>
+      <td>-5.441777</td>
+      <td>R-3c</td>
+      <td>1.288179</td>
+      <td>60.0</td>
+      <td>0.431304</td>
+      <td>6.3100</td>
+      <td>1 0 0</td>
+      <td>0 0 1</td>
+      <td>0.027182</td>
+      <td>98.555864</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><a href="https://materialsproject.org/materials/mp-754401" target="_blank">mp-754401</a></td>
+      <td>Al2O3</td>
+      <td>0.045600</td>
+      <td>-3.380951</td>
+      <td>-5.634918</td>
+      <td>Cmc2_1</td>
+      <td>2.015780</td>
+      <td>60.0</td>
+      <td>0.275624</td>
+      <td>4.2347</td>
+      <td>1 1 0</td>
+      <td>1 0 0</td>
+      <td>0.030205</td>
+      <td>111.256979</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td><a href="https://materialsproject.org/materials/mp-776490" target="_blank">mp-776490</a></td>
+      <td>Al2O3</td>
+      <td>0.047810</td>
+      <td>-3.378741</td>
+      <td>-5.631235</td>
+      <td>Pbca</td>
+      <td>1.303540</td>
+      <td>60.0</td>
+      <td>0.426221</td>
+      <td>5.4415</td>
+      <td>1 1 0</td>
+      <td>0 1 0</td>
+      <td>0.028238</td>
+      <td>136.091417</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td><a href="https://materialsproject.org/materials/mp-759943" target="_blank">mp-759943</a></td>
+      <td>Al2O3</td>
+      <td>0.035135</td>
+      <td>-3.391416</td>
+      <td>-5.652359</td>
+      <td>P2/c</td>
+      <td>1.426037</td>
+      <td>60.0</td>
+      <td>0.389609</td>
+      <td>4.0646</td>
+      <td>1 1 0</td>
+      <td>1 0 1</td>
+      <td>0.016357</td>
+      <td>137.714040</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td><a href="https://materialsproject.org/materials/mp-32570" target="_blank">mp-32570</a></td>
+      <td>Al2O3</td>
+      <td>0.032410</td>
+      <td>-3.394141</td>
+      <td>-5.656901</td>
+      <td>C2/c</td>
+      <td>1.425633</td>
+      <td>60.0</td>
+      <td>0.389719</td>
+      <td>4.1331</td>
+      <td>1 1 0</td>
+      <td>1 0 1</td>
+      <td>0.016649</td>
+      <td>138.138095</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+function sortTable(n) {
+var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+table = document.getElementById("myTable2");
+switching = true;
+dir = "asc";
+while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+                var cmpX=isNaN(parseFloat(x.innerHTML))?x.innerHTML.toLowerCase():parseFloat(x.innerHTML);
+                var cmpY=isNaN(parseFloat(y.innerHTML))?y.innerHTML.toLowerCase():parseFloat(y.innerHTML);
+cmpX=(cmpX=='-')?0:cmpX;
+cmpY=(cmpY=='-')?0:cmpY;
+        if (dir == "asc") {
+            if (cmpX > cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        } else if (dir == "desc") {
+            if (cmpX < cmpY) {
+                shouldSwitch= true;
+                break;
+            }
+        }
+    }
+    if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;      
+    } else {
+        if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+        }
+    }
+}
+}
+
+
+function sortTable2(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
