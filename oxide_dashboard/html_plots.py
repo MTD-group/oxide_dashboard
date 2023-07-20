@@ -26,23 +26,33 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
 
     output_file(name_of_pfile)
 
-    source = ColumnDataSource(data=dict(form=list(df["form. energy per atom (eV/atom)"]),
-                                        mcia=list(df["min. coincident area"]),
-                                        strain=list(df["misfit strain (norm)"]),
-                                        names=list(df["oxide"]),
-                                        mp_ids=list(df["material ID"]),
-                                        v_mox_ratio=list(df["v_mox_ratio"]),
-                                        ox_orients=list(df["oxide orientation"])))
-    
+    data_dict = dict(
+        form=list(df["Formation energy (eV/atom)"]),
+        mcia=list(df["Min. coincident area"]),
+        strain=list(df["Misfit strain (norm)"]),
+        names=list(df["Oxide"]),
+        mp_ids=list(df["Material ID"]),
+        v_mox_ratio=list(df["Vmox/Vm ratio"]),
+        ox_orients=list(df["Oxide orientation"])
+        )
+    if False: # shows data for debuging
+        for key in data_dict:
+            print(key, 'len():', len(data_dict[key]) )
+            for thing in data_dict[key]:
+                print(thing)
+    source = ColumnDataSource(data=data_dict)
 
+    bottom_left= None
+    right=None
+    left=None
 
-    kwrds= dict(x_offset=3, y_offset=3, 
-        source=source, text_font_size="8pt",
+    kwrds= dict(x_offset=3, y_offset=3,
+        source=source, text_font_size="12pt",
         #render_mode='canvas',
         )
 
     # create a view of the source for one plot to use
-    view = CDSView()#source=source) # source is depricated
+    #view = CDSView()#source=source) # source is depricated
 
     # create a new plot and add a renderer
     left = figure(tools=TOOLS, title='MCIA vs Formation Energy Per Atom')
@@ -52,36 +62,36 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
     labels = LabelSet(x='form', y='mcia', text='names',
                   **kwrds)
     left.add_layout(labels)
-   
-    # create another new plot, add a renderer that uses the view of the data source
-    right = figure(tools=TOOLS, title='Misfit Strain vs Formation Energy Per Atom')
-    right.circle(x='form', y='strain', size=8, hover_color="deeppink", source=source, view=view)
-    right.xaxis[0].axis_label = 'Formation energy per atom (eV/atom)'
-    right.yaxis[0].axis_label = 'Misfit Strain'
-    labels = LabelSet(x='form', y='strain', text='names',
-                  **kwrds)
-    right.add_layout(labels)
 
-    ########## 
-    bottom_left = figure(tools=TOOLS, title='Misfit Strain vs Vm/ox Ratio ')
-    bottom_left.circle(x='v_mox_ratio', y='strain', size=8, hover_color="deeppink", source=source)
-    bottom_left.xaxis[0].axis_label = 'Vm/ox Ratio'
-    bottom_left.yaxis[0].axis_label = 'Misfit Strain'
-    labels = LabelSet(x='v_mox_ratio', y='strain', text='names',
-                  **kwrds)
-    bottom_left.add_layout(labels)
+    # create another new plot, add a renderer that uses the view of the data source
+    if True:
+        right = figure(tools=TOOLS, title='Misfit Strain vs Formation Energy Per Atom')
+        right.circle(x='form', y='strain', size=8, hover_color="deeppink", source=source)#, view=view)
+        right.xaxis[0].axis_label = 'Formation energy per atom (eV/atom)'
+        right.yaxis[0].axis_label = 'Misfit Strain'
+        labels = LabelSet(x='form', y='strain', text='names',
+                      **kwrds)
+        right.add_layout(labels)
+
+    ##########
+    if True:
+        bottom_left = figure(tools=TOOLS, title='Misfit Strain vs Vm/ox Ratio ')
+        bottom_left.circle(x='v_mox_ratio', y='strain', size=8, hover_color="deeppink", source=source)
+        bottom_left.xaxis[0].axis_label = 'Vmox/Vm Ratio'
+        bottom_left.yaxis[0].axis_label = 'Misfit Strain'
+        labels = LabelSet(x='v_mox_ratio', y='strain', text='names',
+                      **kwrds)
+        bottom_left.add_layout(labels)
     ####
     p = gridplot([[left, right],[bottom_left,None]])
 
     save(p)
     if show_results:
         show(p)
-    
+
     f1 = open(name_of_pfile, 'a+')
     f1.write("<br>")
     f1.write(append_string)
     f1.write("<br><br>")
     f1.write(file_contents)
     f1.close()
-    
-

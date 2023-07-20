@@ -1,6 +1,7 @@
-
-db_files = ['/home/mjwaters/Dropbox/NW/MURI8/dev_software/oxide_dashboard_data/mp/mp_oxides.db',
-            '/home/mjwaters/Dropbox/NW/MURI8/dev_software/oxide_dashboard_data/oqmd/oqmd_oxides.db']
+import os
+data_path = os.path.abspath('../../../oxide_dashboard_data')
+db_files = [data_path + '/mp/mp_oxides.db',
+            data_path + '/oqmd/oqmd_oxides.db']
 
 from oxide_dashboard import OxideEngine
 from oxide_dashboard import write_dashboard_html
@@ -22,12 +23,12 @@ COMPS  = [ 1,  ]
 ##############
 # df is a pandas data frame
 df, lattice_param = myengine.query(METALS, COMPS, STRUCTURE, e_above_hull_lim = E_HULL)
-print(df) 
+print(df)
 
 write_dashboard_html(
-    df, 
-    lattice_param=lattice_param, 
-    METALS=METALS, COMPS=COMPS, 
+    df,
+    lattice_param=lattice_param,
+    METALS=METALS, COMPS=COMPS,
     STRUCTURE=STRUCTURE, E_HULL=E_HULL,
     add_plots = True,
     filename = None,
@@ -35,9 +36,6 @@ write_dashboard_html(
     )
 
 ################## if you just want to look at the table in IPython
-from oxide_dashboard.utils import display_data 
+from oxide_dashboard.utils import display_data
 new = display_data(df, top_unique = 5)
 #display(new) # for IPython
-
-
-

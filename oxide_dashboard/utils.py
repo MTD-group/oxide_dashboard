@@ -6,7 +6,7 @@ def equiatomic(metals):
 def display_data(df, num_display = None, top_unique = None):
     #pd.set_option("display.max_rows", None, "display.max_columns", None)
     if top_unique is not None:
-        new_df = pd.concat([df.iloc[:top_unique], ((df.iloc[top_unique:]).drop_duplicates(subset=['material ID']))])
+        new_df = pd.concat([df.iloc[:top_unique], ((df.iloc[top_unique:]).drop_duplicates(subset=['Material ID']))])
     else:
         new_df = df.copy(deep = True)
     if num_display is None or len(df) < num_display:

@@ -50,12 +50,12 @@ def make_alloy_string_from_elements(query_elements):
         alloy_name+=el
 
     return alloy_name
-    
-    
+
+
 ###################
 
 def make_spec_query_string_from_elements(query_elements, amounts):
-    
+
     if len(query_elements) != len(amounts):
         print("Invalid inputs!")
 
@@ -74,15 +74,15 @@ def make_spec_query_string_from_elements(query_elements, amounts):
             query_string += chemical_symbols[z] +'=0,'
 
     return query_string
-    
+
 #############
 
 def groupby_itemkey(iterable, item):
     """groupby keyed on (and pre-sorted by) itemgetter(item)."""
     itemkey = itemgetter(item)
     return itertools.groupby(sorted(iterable, key=itemkey), itemkey)
-    
-    
+
+
 ############
 
 def MCIA(f, s, conventional = False):
@@ -119,7 +119,7 @@ def MCIA(f, s, conventional = False):
     df = pd.DataFrame(all_matches)
     #df.set_index("sub_id", inplace=True)
     return df.sort_values("area")
-    
+
 ##############
 
 
@@ -132,7 +132,7 @@ def get_equiv_alloy_volume(atoms):
         if sym != 'O':
             volume+=metallic_atomic_volumes[sym]
     return volume
-    
+
 
 
 #####
@@ -143,7 +143,18 @@ def equiv_alloy_volume(atoms, per_cell_volume):
         if sym != 'O':
             volume+=per_cell_volume
     return volume
-    
+
+########
+from ase.data import covalent_radii
+def atomic_packing_factor(atoms, num_to_radii=covalent_radii):
+    '''Uses ASE covalent_radii to compute APF'''
+    # 4/3*pi*r3
+    vatoms = 0
+    for atom in atoms:
+        vatoms += num_to_radii[atom.number]**3
+    vatoms *= 4/3*np.pi
+    apf = vatoms/atoms.get_volume()
+    return apf
 
 ########
 def get_substrate(lattice_param, structure):
@@ -151,11 +162,11 @@ def get_substrate(lattice_param, structure):
         return mg.Structure(Lattice.cubic(lattice_param), ["Cu", "Cu"], [[0, 0, 0], [0.5, 0.5, 0.5]])
     elif structure == "FCC":
         return mg.Structure(Lattice.cubic(lattice_param), ["Cu", "Cu", "Cu", "Cu"], [[0, 0, 0], [0.5, 0.5, 0], [0.5, 0, 0.5], [0, 0.5, 0.5]])
-        
+
 ##########
 
 
-    
+
 ##################
 from itertools import compress
 def sort_through_dupes(films):
@@ -230,7 +241,7 @@ def misfit_strain(film, match, norm = True):
 
 class OxideEngine:
     def __init__(self, db_files: list):
-    
+
         self.dbs = [connect(os.path.abspath(db_file ))  for db_file in db_files]
 
 
@@ -241,25 +252,38 @@ class OxideEngine:
         for db in self.dbs:
             for row in db.select(my_qs):
                 atoms = row.toatoms()
-                if len(set(atoms.get_chemical_symbols())) == 1:
-                    continue
-                v_mox_ratio = atoms.cell.volume / equiv_alloy_volume(atoms, per_cell_volume)
-                try:
-                    substrates.append({"structure": AseAtomsAdaptor.get_structure(atoms), 
-                                       "atoms": atoms,
-                                       "source": row['material_id'],
-                                       "natoms": row['natoms'],
-                                       "spg_num": row['spg_number'],
-                                       "formula": row['pretty_formula'],
-                                       "ox_at_%": 100*Composition(row['pretty_formula']).get_atomic_fraction("O"),
-                                       "e_above_hull": row['e_above_hull'],
-                                       "formation_energy_per_atom": row["formation_energy_per_atom"],
-                                       "space group": row["spg_symbol"],
-                                       "v_mox_ratio": v_mox_ratio,
-                                       "ICSD IDs": process_ICSD(row.data.icsd_ids),
-                                       "band gap": row["band_gap"]})
-                except:
-                    print('Tabulation failed for:', row)
+                if len(set(atoms.get_chemical_symbols())) > 1:
+
+                    v_mox_ratio = atoms.cell.volume / equiv_alloy_volume(atoms, per_cell_volume)
+                    pymg_structure =  AseAtomsAdaptor.get_structure(atoms)
+                    ox_frac = Composition(row['pretty_formula']).get_atomic_fraction("O")
+                    ox_at_percent = 100*ox_frac
+                    ICSD_ids = process_ICSD(row.data.icsd_ids)
+                    # needs correction for intermetallics reducing the relative formation energy
+                    alloy_chem_pot = 0
+                    ox_chem_pot = (row["formation_energy_per_atom"]-alloy_chem_pot)/ox_frac
+                    cov_atomic_packing_factor = atomic_packing_factor(atoms)
+                    try:
+                        entry = {
+                            "structure": pymg_structure,
+                            "atoms": atoms,
+                            "source": row['material_id'],
+                            "natoms": row['natoms'],
+                            "spg_num": row['spg_number'],
+                            "formula": row['pretty_formula'],
+                            "ox_at_%": ox_at_percent,
+                            "e_above_hull": row['e_above_hull'],
+                            "formation_energy_per_atom": row["formation_energy_per_atom"],
+                            "space group": row["spg_symbol"],
+                            "v_mox_ratio": v_mox_ratio,
+                            "ICSD IDs": ICSD_ids,
+                            "band gap": row["band_gap"],
+                            'oxygen chemical potential': ox_chem_pot,
+                            "atomic packing factor": cov_atomic_packing_factor
+                            }
+                        substrates.append(entry)
+                    except:
+                        print('Tabulation failed for:', row)
                 howmany +=1
         return substrates
 
@@ -275,7 +299,7 @@ class OxideEngine:
         #    return None
         comp =  np.array(composition)
         composition_fractions = comp/comp.sum()
-        
+
         parameter = 0
         if structure == "BCC":
             using = all_BCC
@@ -309,30 +333,36 @@ class OxideEngine:
 
             for match in lowest_matches:
                 try:
-                    db_entry = {
-                        "material ID": f["source"],
-                        "oxide": film.composition.reduced_formula,
-                        "e_above_hull (eV)": f['e_above_hull'],
-                        "form. energy per atom (eV/atom)": f["formation_energy_per_atom"],
-                        "space-group": f["space group"],
-                        "v_mox_ratio": f["v_mox_ratio"],
-                        "atomic % of O in oxide": round(f["ox_at_%"], 2),
-                        "band gap": f["band gap"],
-                        "alloy orientation": " ".join(map(str, match["sub_miller"])),
-                        "oxide orientation": " ".join(map(str, match["film_miller"])),
-                        "misfit strain (norm)": misfit_strain(film, match, norm = True),
-                        "min. coincident area": match["match_area"],
-                        "similar ICSD structure IDs": f["ICSD IDs"],
-                    }
-                    all_matches.append(db_entry)
+                    formula = film.composition.reduced_formula
                 except:
                     print(f["source"], "with composition", film.composition.reduced_formula, "failed")
+                    formula = 'Pu'
+
+                #maybe each field could have a 'name', generating_function[name], order, and table_num (for alloy and oxide orientation)
+                #maybe a fieldset class that can spit out the ordered field names in the html table header
+                # the entry dict could be created by the fieldset class by passing (f, film, match, str) to the generating function
+                #print(formula)
+                db_entry = {
+                    "Material ID": f["source"],
+                    "Oxide": formula,
+                    "Energy above hull (eV/atom)": f['e_above_hull'],
+                    "Formation energy (eV/atom)": f["formation_energy_per_atom"],
+                    'Oxygen chemical potential (eV/atom)': f['oxygen chemical potential'],
+                    "Space group": f["space group"],
+                    "Vmox/Vm ratio": f["v_mox_ratio"],
+                    "Oxide O at.%": round(f["ox_at_%"], 2),
+                    "Atomic packing factor": f['atomic packing factor'] ,
+                    "Band gap": f["band gap"],
+                    "Alloy orientation": " ".join(map(str, match["sub_miller"])),
+                    "Oxide orientation": " ".join(map(str, match["film_miller"])),
+                    "Misfit strain (norm)": misfit_strain(film, match, norm = True),
+                    "Min. coincident area": match["match_area"],
+                    "Similar ICSD structure IDs": f["ICSD IDs"],
+                }
+                all_matches.append(db_entry)
+
         df = pd.DataFrame(all_matches)
-        df = df.sort_values("min. coincident area")
+        df = df.sort_values("Min. coincident area")
         print("Calculated parameter is:", parameter)
         print("Found", len(films), "film candidates.")
         return  df, parameter
-    
-    
-    
-
