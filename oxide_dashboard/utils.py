@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def equiatomic(metals):
     return np.ones(len(metals)) / len(metals)
