@@ -33,7 +33,9 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
         names=list(df["Oxide"]),
         mp_ids=list(df["Material ID"]),
         v_mox_ratio=list(df["Vmox/Vm ratio"]),
-        ox_orients=list(df["Oxide orientation"])
+        ox_orients=list(df["Oxide orientation"]),
+        ox_chem_pot=list(df['Oxygen chemical potential (eV/atom)']),
+        ox_atom_percent=list(df["Oxide O at.%"]),
         )
     if False: # shows data for debuging
         for key in data_dict:
@@ -43,6 +45,7 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
     source = ColumnDataSource(data=data_dict)
 
     bottom_left= None
+    bottom_right = None
     right=None
     left=None
 
@@ -82,8 +85,19 @@ def prepend_plots(name_of_pfile, name_of_file, df, append_string='', show_result
         labels = LabelSet(x='v_mox_ratio', y='strain', text='names',
                       **kwrds)
         bottom_left.add_layout(labels)
+    
+    ##########
+    if True:
+        bottom_right = figure(tools=TOOLS, title='Oxygen Chemical Potential vs Oxygen Fraction')
+        bottom_right.circle(x='ox_atom_percent', y='ox_chem_pot', size=8, hover_color="deeppink", source=source)
+        bottom_right.xaxis[0].axis_label = 'Oxide Ox at.%'
+        bottom_right.yaxis[0].axis_label = 'Oxygen Chemical Potential (eV/atom)'
+        labels = LabelSet(x='ox_atom_percent', y='ox_chem_pot', text='names',
+                      **kwrds)
+        bottom_right.add_layout(labels)
+    
     ####
-    p = gridplot([[left, right],[bottom_left,None]])
+    p = gridplot([[left, right],[bottom_left,bottom_right],[None,None]]) # Nones are placeholders
 
     save(p)
     if show_results:
